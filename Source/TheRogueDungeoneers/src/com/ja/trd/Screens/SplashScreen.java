@@ -3,21 +3,18 @@ package com.ja.trd.Screens;
 import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
-import aurelienribon.tweenengine.TweenEquation;
 import aurelienribon.tweenengine.TweenEquations;
 import aurelienribon.tweenengine.TweenManager;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL10;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.ja.trd.TheRogueDungeoneers;
 import com.ja.trd.Common.Constants;
+import com.ja.trd.Common.Data;
 import com.ja.trd.Tweens.SplashTween;
 
 public class SplashScreen implements Screen
@@ -26,7 +23,6 @@ public class SplashScreen implements Screen
 	private TweenManager tweenManager;
 	private Texture splashTexture;
 	private Sprite splashSprite;
-	private SpriteBatch splashBatch;
 	
 	public SplashScreen(final TheRogueDungeoneers game)
 	{
@@ -49,24 +45,16 @@ public class SplashScreen implements Screen
 		splashSprite.draw(game.batch);
 		game.batch.end();
 	}
-	
-	@Override
-	public void resize(int width, int height)
-	{
 		
-	}
-	
 	@Override
 	public void show()
 	{		
-		splashTexture = new Texture(Gdx.files.internal("data/splash.png"));
+		splashTexture = new Texture(Gdx.files.internal(Data.texturepack + "splash.png"));
 		splashTexture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		
 		splashSprite = new Sprite(splashTexture);
 		splashSprite.setColor(1, 1, 1, 0);
-		
-		splashBatch = new SpriteBatch();
-		
+				
 		tweenManager = new TweenManager();
 		Tween.registerAccessor(Sprite.class, new SplashTween());
 		
@@ -76,7 +64,6 @@ public class SplashScreen implements Screen
 			@Override
 			public void onEvent(int type, BaseTween<?> source)
 			{
-				Gdx.app.log(Constants.LOG_TAG, "Done");
 				splashTweenFinished();
 			}
 		};
@@ -90,7 +77,7 @@ public class SplashScreen implements Screen
 	
 	public void splashTweenFinished()
 	{
-		Gdx.app.log(Constants.LOG_TAG, "Done");
+		game.setScreen(new MainMenuScreen(game));
 	}
 	
 	@Override
@@ -107,6 +94,12 @@ public class SplashScreen implements Screen
 	
 	@Override
 	public void resume()
+	{
+		
+	}
+	
+	@Override
+	public void resize(int width, int height)
 	{
 		
 	}

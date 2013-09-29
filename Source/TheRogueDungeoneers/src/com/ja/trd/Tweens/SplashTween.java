@@ -1,9 +1,6 @@
 package com.ja.trd.Tweens;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.ja.trd.Common.Constants;
-
 import aurelienribon.tweenengine.TweenAccessor;
 
 public class SplashTween implements TweenAccessor<Sprite>
