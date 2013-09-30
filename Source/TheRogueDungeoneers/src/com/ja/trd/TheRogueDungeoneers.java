@@ -1,7 +1,5 @@
 package com.ja.trd;
 
-import java.awt.Font;
-
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
