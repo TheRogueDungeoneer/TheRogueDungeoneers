@@ -49,11 +49,12 @@ public class SplashScreen implements Screen
 	@Override
 	public void show()
 	{		
-		splashTexture = new Texture(Gdx.files.internal(Data.texturepack + "splash.png"));
+		splashTexture = new Texture(Gdx.files.internal(Data.texturepack + "General\\" + "splash.png"));
 		splashTexture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		
 		splashSprite = new Sprite(splashTexture);
 		splashSprite.setColor(1, 1, 1, 0);
+		splashSprite.setPosition((Gdx.graphics.getWidth() - splashTexture.getWidth()) / 2, (Gdx.graphics.getHeight() - splashTexture.getHeight()) / 2);
 				
 		tweenManager = new TweenManager();
 		Tween.registerAccessor(Sprite.class, new SplashTween());

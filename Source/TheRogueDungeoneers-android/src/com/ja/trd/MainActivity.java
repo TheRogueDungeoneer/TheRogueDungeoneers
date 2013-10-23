@@ -4,6 +4,9 @@ import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
+import com.badlogic.gdx.backends.android.surfaceview.RatioResolutionStrategy;
+import com.badlogic.gdx.backends.android.surfaceview.ResolutionStrategy;
+import com.badlogic.gdx.backends.android.surfaceview.ResolutionStrategy.MeasuredDimension;
 
 public class MainActivity extends AndroidApplication {
     @Override
@@ -14,7 +17,7 @@ public class MainActivity extends AndroidApplication {
         cfg.useGL20 = true;
         cfg.useCompass = false;
         cfg.useAccelerometer = false;
-        
+        cfg.resolutionStrategy = new RatioResolutionStrategy(320, 480);
         initialize(new TheRogueDungeoneers(), cfg);
     }
 }

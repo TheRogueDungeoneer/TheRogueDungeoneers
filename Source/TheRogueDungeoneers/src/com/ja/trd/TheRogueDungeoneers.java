@@ -18,7 +18,7 @@ public class TheRogueDungeoneers extends Game
 		// Create the sprite batch
 		this.batch = new SpriteBatch();
 		
-		mainFont = new BitmapFont(Gdx.files.internal(Data.texturepack + "TRDFont.fnt"));
+		mainFont = new BitmapFont(Gdx.files.internal(Data.texturepack + "General\\" + "TRDFont.fnt"));
 		
 		// Create the splash screen
 		this.setScreen(new SplashScreen(this));
