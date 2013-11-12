@@ -2,16 +2,11 @@ package com.ja.trd.Screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL10;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.Texture.TextureWrap;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -25,7 +20,6 @@ import com.badlogic.gdx.utils.Scaling;
 import com.ja.trd.TheRogueDungeoneers;
 import com.ja.trd.Common.Constants;
 import com.ja.trd.Common.Data;
-import com.ja.trd.Common.Logger;
 
 public class MainMenuScreen implements Screen
 {
@@ -47,11 +41,6 @@ public class MainMenuScreen implements Screen
 	private Image statsImage;
 	private Image optionsImage;
 	private Image aboutImage;
-	
-	private Label playLabel;
-	private Label statsLabel;
-	private Label optionsLabel;
-	private Label aboutLabel;
 	
 	private int buttonOffset = 32;
 	
@@ -144,7 +133,7 @@ public class MainMenuScreen implements Screen
 		{
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button)
 			{
-				Gdx.app.log(com.ja.trd.Common.Constants.LOG_TAG, "Playing");
+				game.setScreen(new GameScreen(game));
 				return false;
 			}
 		});
